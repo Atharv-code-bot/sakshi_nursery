@@ -1,21 +1,19 @@
 package com.sakshi.nursery.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-
+@AllArgsConstructor
 public class AuthResponse {
     private String token;
     private String role;
     private Long id;
+    private boolean authenticated;
 
-    public AuthResponse(String token, String role, Long id) {
-        this.token = token;
-        this.role = role;
-        this.id = id;
-    }
+
 
 
 }

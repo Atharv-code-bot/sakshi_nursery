@@ -66,7 +66,7 @@ public class ProductService {
             throw new RuntimeException("Product name already exists: " + dto.getName());
         }
 
-        Category category = getOrCreateCategoryByName(dto.getCategory());
+        Category category = getOrCreateCategoryByName(dto.getCategory().getName());
 
         Product product = new Product();
         mapDtoToProduct(dto, product);
@@ -83,7 +83,7 @@ public class ProductService {
                 .orElseThrow(() -> new RuntimeException("Product not found with ID: " + id));
 
         mapDtoToProduct(dto, existing);
-        existing.setCategory(getOrCreateCategoryByName(dto.getCategory()));
+        existing.setCategory(getOrCreateCategoryByName(dto.getCategory().getName()));
 
         if (files != null && files.length > 0) {
             deleteExistingImages(existing);

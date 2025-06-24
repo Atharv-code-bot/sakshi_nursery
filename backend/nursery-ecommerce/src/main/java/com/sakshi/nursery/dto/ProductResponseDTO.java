@@ -31,7 +31,8 @@ public class ProductResponseDTO {
         this.status=product.getStatus();
 
         // Remove base path to make paths relative
-        String basePath = "C:\\Users\\DEll\\OneDrive\\Desktop\\NurseryBackend\\backend\\nursery-ecommerce\\";
+
+        String basePath = "C:\\Users\\DEll\\OneDrive\\Desktop\\sakshi_nursery\\backend\\nursery-ecommerce\\";
 
         this.imageUrls = product.getImages().stream()
                 .map(img -> img.getImagePath().replace(basePath, "").replace("\\", "/"))

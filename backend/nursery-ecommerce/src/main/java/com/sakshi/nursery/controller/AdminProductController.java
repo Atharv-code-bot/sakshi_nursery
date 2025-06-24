@@ -43,13 +43,13 @@ public class AdminProductController {
     @PostMapping(path = "/create",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ProductResponseDTO> createProduct( @RequestPart("file") MultipartFile[] file,
                                                              @RequestPart("product") ProductRequestDTO productDTO,
-                                                             @RequestParam("token") String token)
+                                                             @RequestParam("Firebasetoken") String Firebasetoken)
     {
 
         ProductResponseDTO savedProduct = productService.createProduct(productDTO, file);
         ProductNotificationDTO dto= new ProductNotificationDTO(savedProduct);
 
-        pushNotificationService.sendPushNotificationToToken(token, dto);
+        pushNotificationService.sendPushNotificationToToken(Firebasetoken, dto);
         return new ResponseEntity<>(savedProduct, HttpStatus.CREATED);
     }
 

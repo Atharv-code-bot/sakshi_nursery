@@ -16,6 +16,6 @@ public class ProductRequestDTO {
     private String description;
     private BigDecimal price;
     private Integer stockQuantity;
-    private String category;
+    private CategoryDTO category;
     private ProductStatus status; // Should match ProductStatus enum
 }

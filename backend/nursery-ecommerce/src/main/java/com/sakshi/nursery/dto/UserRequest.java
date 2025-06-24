@@ -27,7 +27,8 @@ public class UserRequest {
     private String phoneNumber;
 
 
-    public @NotBlank(message = "Name is required") String getName() {
+     @NotBlank(message = "Name is required")
+     public String getName() {
         return name;
     }
 

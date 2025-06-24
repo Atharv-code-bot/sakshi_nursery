@@ -45,7 +45,7 @@ public class AuthController {
 
 
             // Return AuthResponse with token, user role, user id and include userDto if needed
-            AuthResponse authResponse = new AuthResponse(token, userDto.getRole().name(), userDto.getId());
+            AuthResponse authResponse = new AuthResponse(token, userDto.getRole().name(), userDto.getId(),true);
 
 
             return ResponseEntity.ok(authResponse);
@@ -75,7 +75,7 @@ public class AuthController {
             String token = jwtUtil.generateToken(userDetails.getUsername());
 
             User user = userOptional.get();
-            return ResponseEntity.ok(new AuthResponse(token, user.getRole().name(), user.getId()));
+            return ResponseEntity.ok(new AuthResponse(token, user.getRole().name(), user.getId(),true));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Invalid credentials.");
         }

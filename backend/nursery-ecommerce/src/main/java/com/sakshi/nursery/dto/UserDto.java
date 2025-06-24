@@ -2,9 +2,11 @@ package com.sakshi.nursery.dto;
 
 import com.sakshi.nursery.model.AuthProvider;
 import com.sakshi.nursery.model.Role;
+import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
-
+@Data
 public class UserDto {
     private Long id;
     private String name;
@@ -13,6 +15,8 @@ public class UserDto {
     private String address;
     private Role role;
     private AuthProvider provider;
+    private String createdate;
+    private  boolean authenticated;
 
     public Long getId() {
         return id;

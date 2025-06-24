@@ -33,7 +33,8 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // ✅ Preflight
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers("/Products/**").permitAll()// ✅ Preflight
                         .requestMatchers("/auth/**").permitAll()
                         .anyRequest().authenticated()                      // Deny everything else
                 )

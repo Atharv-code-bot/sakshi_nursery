@@ -20,7 +20,7 @@ public class CorsConfig {
 
         // ✅ Allow credentials
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of("http://127.0.0.1:5501")); // Use exact origin
+        config.setAllowedOrigins(List.of("http://localhost:5173")); // Use exact origin
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
 
